@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Teko&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="Images/favicon (2).ico">
+    <script src="jquery.min.js"></script>
+   
+    <title>@DINNAlk</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar{
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track{
+            border-radius: 10px;
+            background-color: #0D0C0F;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: #f97070;
+            border-radius:10px;
+        }
+        body{
+            background-color: #0D0C0F;
+        }
+        #main{
+            width: 100%;
+            height: 100vh;
+        }
+        #d1{
+            width:50%;
+            height: 100vh;
+            float: left;
+            background-color: #0D0C0F;
+            user-select: none;
+            color:#c0c0c0;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+            
+        }
+        #d2{
+            width:50%;
+            height: 100vh;
+            float: left;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0D0C0F;
+            cursor: pointer;
+            user-select: none;
+            box-shadow: 1px 2px 10px #f97070;
+        }
+        #im1{
+            width: 100%;
+            user-select: none;
+            
+        }
+        #im2{
+            width:25%;
+            user-select: none;
+            border-top: #c0c0c0 solid 1px;
+            border-radius: 5%;
+            border-bottom: #c0c0c0 solid 1px;
+            margin-top: 5%;
+        }
+        #btn1{
+            width:50%;
+            height: 10%;
+            border-radius: 25px;
+            border:none;
+            background-color: #262626;
+            cursor: pointer;
+            opacity: 0%;
+            font-family: 'Fredoka';
+            transition: 0.4s opacity;
+            margin-top: 5%;
+            filter: drop-shadow(5px 5px 15px rgba(140, 140, 140, 0.1));
+        }
+        #btn1 a{
+            color:#f97070;
+            text-decoration: none;
+        }
+        #main1{
+            width: 100%;
+            min-height: 100vh;
+            background-color: #0D0C0F;
+            padding: 20px;
+            color:#f97070;
+            font-family: 'Fredoka';
+            background-image: url('Images/images.png');
+            background-repeat:no-repeat;
+            background-position-x: right;
+            background-position-y:bottom ;
+            background-attachment: fixed;
+        }
+        #main2{
+            width: 100%;
+            min-height: 100vh;
+            background-color: #0D0C0F;
+            padding: 10px;
+            color:#f97070;
+            font-family: 'Fredoka';
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            
+        }
+        iframe{
+            border-radius:25px ;
+            width: 100%;
+        }
+        #flowFirst, #flowSecond, #flowThird{
+            width:100%;
+            height: 100px;
+            border-radius: 25px;
+            color:#c0c0c0;
+            background-color: #1E1F24;
+            padding: 10px;
+            font-size: 25px;
+            font-family: 'Fredoka';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1%;
+            user-select: none;
+            cursor: pointer;
+            transition: 0.4s opacity;
+        }
+        #flowFirstOut, #flowSecondOut,#flowThirdOut{
+            width:100%;
+            min-height: 100px;
+            color:#c0c0c0;
+            padding: 10px;
+            font-family: 'Fredoka';
+            display: none;
+            background-color: #1E1F24;
+            border-radius: 25px;
+            margin-top: 1%;
+        }
+        #flowFirst:hover, #flowSecond:hover, #flowThird:hover {
+            opacity: 75%;
+
+        }
+        #b1{
+            width: 600px;
+            height: 400px;
+            background-color: #1E1F24;
+            padding: 10px;
+            border-radius: 25px;
+            filter: drop-shadow(5px 5px 15px rgba(140, 140, 140, 0.1));
+        }
+        footer{
+        width:100%;
+        min-height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        background-color: #1E1F24;
+        font-family: 'Fredoka';
+        color:#c0c0c0;
+        font-size:12px;
+      }
+      #book{
+        width:100%;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        background-color: #f97070;
+        color: #0D0C0F;
+        padding: 5px;
+        font-family: 'Fredoka';
+        opacity: 0%;
+        user-select: none;
+        cursor: pointer;
+      }
+      #homeBtn{
+        width: 50px;
+        height: 50px;
+        font-size: 12px;
+        font-family: 'Fredoka one';
+        display: flex;
+        cursor: pointer;
+        user-select: none;
+        position: fixed;
+        bottom: 50px;
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        background-color: #262626;
+        color: #c0c0c0;
+        border-radius: 10px;
+        filter: drop-shadow(5px 5px 15px rgba(30, 31, 36, 0.8));
+        transition: 0.4s background-color,0.4s color;
+      }
+      #homeBtn:hover{
+        background-color: #f97070;
+        color: red;
+      }
+      #alert{
+        width: 50%;
+        min-height: 60vh;
+        background-color: white;
+        filter: drop-shadow(5px 5px 15px rgba(30, 31, 36, 0.8));
+        position: fixed;
+        z-index: 50000;
+        left:50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        cursor: pointer;
+        border-radius: 25px;
+        font-family: 'Fredoka';
+        font-size: 20px;
+        display: none;
+        padding: 15px;
+      }
+      #errim{
+        width:50%;
+      }
+        @media screen and (max-width:768px) {
+            #d1{
+                width: 100%;
+                height: 100vh;
+                overflow-x: hidden;
+            }
+           #d2{
+            display: none;
+           }
+            
+            #flowFirst, #flowSecond, #flowThird{
+                font-size: 22px;
+            }
+            #im2{
+            width:40%;
+            margin-top: 8%;
+            user-select: none;
+        }
+        footer{
+        font-size:8px;
+ 
+       }
+        }
+    </style>
+</head>
+<body>
+    <div id="homeBtn">
+        HOME
+    </div>
+    <!--alert for button-->
+    <div id="alert">
+        <img src="Images/90333-error.gif" alt="" id="errim" style="display: inline-block;">
+       <p id="f1" style="text-align: center ;">It is not avilable yet ! click to close</p> 
+    </div>
+    <div id="main">
+        <div id="d1">
+            <p id="t1" style="margin-top: 20%;">මට පයිතන් පුළුවන් </p>
+            
+            <img src="Images/yt dp.png" alt="" id="im2"> <br>
+            <button id="btn1" onclick="fun()">
+              <a href="#">PYTHON QUIZ</a>  
+            </button> 
+           
+        </div>
+        <div id="d2">
+            <img src="Images/Python.gif" alt="" id="im1">
+
+        </div>
+    </div>
+    <div id="main1">
+        Mostly Asked Question :
+        <div id="flowFirst">
+            What is PYTHON and How I learn about PYTHON ?
+        </div>
+        <div id="flowFirstOut">
+            Online Courses and Tutorials: There are numerous online platforms that offer in-depth Python courses, often taught by experts in the field. Websites like Udemy, Pluralsight, and LinkedIn Learning have comprehensive courses for various skill levels. <br>
+Participate in Coding Communities: Engage with the Python community through forums like Stack Overflow, Reddit (r/learnpython), and GitHub. Asking questions, sharing your knowledge, and collaborating on projects can help you grow as a programmer. <br>
+Read Books and Documentation: Books like "Automate the Boring Stuff with Python" by Al Sweigart and "Fluent Python" by Luciano Ramalho can provide more advanced insights. Don't forget to consult the official Python documentation (https://docs.python.org/3/) for detailed information on language features and modules. <br>
+Work on Projects: As you gain confidence, work on personal projects that interest you. It could be a web application, data analysis project, game, automation script, or anything else that motivates you to learn and apply Python. <br>
+Explore Data Structures and Algorithms: Understanding data structures (lists, dictionaries, sets, etc.) and algorithms is crucial for efficient programming. Books like "Python Crash Course" by Eric Matthes and "Learning Python" by Mark Lutz cover these topics.
+        </div>
+        <div id="flowSecond">
+            What is PIP?
+        </div>
+        <div id="flowSecondOut">
+            PIP (Python Package Installer) is a command-line tool used to manage and install Python packages (libraries) from the Python Package Index (PyPI) and other package repositories. It makes it easy to install, upgrade, and uninstall Python packages and their dependencies. <br>
+        </div>
+        <div id="flowThird">
+            What is a function in Python? How do I define a function?
+        </div>
+        <div id="flowThirdOut">
+            Functions in Python are blocks of reusable code that perform a specific task. They help in modularizing code and improving code organization. <br>
+            Functions are defined using the def keyword, followed by the function name, parameters, and a block.
+        </div>
+
+    </div>
+    <div id="main2">
+        <div id="b1">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/jIadDt6LQDg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <br>
+        "මට පයිතන් පුළුවන්" is the most popular video on my YOUTUBE channel.
+        <br>
+        Duration : 35:05 <br>
+
+        </div>
+        <div id="b1">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/8oygwztkBqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <br>
+        PYTHON FULL LESSON SESSION OF WebFesti'23
+        <br>
+        Duration : 03:03:56 <br>
+    
+    </div>
+    
+    </div>
+    <div id="book">
+        PYTHON BOOK <a href="Images/PYTHON.pdf" target="_blank"> DOWNLOAD NOW! </a> (FROM For Loop TO Function)
+    </div>
+    <footer>
+        Developed By, DINNAteam | 2023 | DINNA | YouTube | Podcast | create your own website | 0715144517 | dinushapiumantha555@gmail.com | <a href="Home.html">Home</a>
+    </footer>
+    <script>
+        $("#flowFirst").click(function(){
+            $("#flowFirstOut").slideToggle('fast');
+        });
+        $("#flowSecond").click(function(){
+            $("#flowSecondOut").slideToggle('fast');
+        });
+        $("#flowThird").click(function(){
+            $("#flowThirdOut").slideToggle('fast');
+        });
+        var x=document.getElementById("d1");
+        var bb=document.getElementById("homeBtn");
+        bb.onclick=()=>{
+            window.open('Home.html','_self');
+        }
+var y =document.getElementById("btn1");
+x.addEventListener('mouseover',myfun);
+    x.addEventListener('mouseout',myfun1);
+        function myfun(){
+            y.style.opacity="100%";
+        }
+        function myfun1(){
+            y.style.opacity="0%";
+        }
+        var boxes=document.getElementById('b1');
+        var book=document.getElementById("book");
+        document.addEventListener('scroll',myfunS);
+        function myfunS(){
+            if(scrollY<=1000){
+                boxes.style.margin="0px";
+                boxes.style.transition="1s";
+                book.style.opacity="100%";
+                book.style.transition="10s";
+            }
+            else{
+                boxes.style.margin="15px";
+            }
+        }
+        var x=document.getElementById("alert");
+        function fun(){
+            x.style.display="block";
+        }
+        
+        x.addEventListener('click',ela);
+        function ela(){
+            x.style.display="none"
+        }
+    </script>
+    
+</body>
+</html>

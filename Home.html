@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Teko&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="Images/favicon (2).ico">
+    <title>@DINNAlk</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+        ::-webkit-scrollbar{
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track{
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: #f97070;
+            border-radius:10px;
+        }
+            /*for content*/
+            body{
+                background-color: #0D0C0F;
+               
+            }
+            
+        header{
+            width: 400px;
+            height: 50px;
+            background-color: #1E1F24;
+            filter: drop-shadow(5px 5px 15px rgba(140, 140, 140, 0.2));
+            position: fixed;
+            left: 50%;
+            top: 5%;
+            transform: translate(-50%,-5%);
+            border-radius: 25px;
+            z-index: 250;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #mainFirst{
+            width: 100%;
+            min-height: 100vh;
+            float: left;
+            
+        }
+        #mainSecond{
+            width: 100%;
+            min-height: 100vh;
+            background-color: #0D0C0F;
+            float: left;
+            background-image: url('Images/zoom-podcast.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            
+        }
+        #mainThird{
+            width: 100%;
+            min-height: 100vh;
+            background-color: #0D0C0F;
+            padding: 20px;
+            float: left;
+            
+            
+        }
+        #thumb{
+            width: 50%;
+            min-height: 100vh;
+            background-color: #0D0C0F;
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #im{
+            width: 40px;
+            margin-left: 10px;
+            user-select: none;
+            cursor: pointer;
+        }
+        #details{
+            width: 50%;
+            min-height: 100vh;
+            float: left;
+            padding: 20px;
+            font-family: 'Fredoka';
+            color: #f2f2f2;
+            background-color: #0D0C0F;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+       
+        #podcast{
+            width: 500px;
+            height: 400px;
+            padding: 10px;
+            margin-top: 40px;
+            margin-left: 25px;
+            border-radius: 25px;
+            background-color: #1E1F24;
+            filter: drop-shadow(5px 5px 15px rgba(140, 140, 140, 0.1));
+            opacity: 0%;
+            transition: 0.4s opacity;
+            overflow-y: hidden;
+            position: relative;
+            left: 50%;
+            top:50%;
+            transform:translate(-50%,0%);
+        }
+        iframe{
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+        #btn1{
+            width:35px;
+            height: 35px;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 100%;
+            background-color: transparent;
+            border: 2px solid #f2f2f2;
+            color: #f2f2f2;
+            font-family: 'Fredoka';
+
+        }
+        #text1{
+            width: 300px;
+            position: relative;
+            left:80%;
+            color: #f2f2f2;
+            font-size: 12px;
+            width: 50%;
+            font-family: 'Fredoka';
+            
+        }
+        #vid{
+            width: 50%;
+            min-height: 100vh;
+            
+            float: left;
+
+        }
+        #detailed{
+            width: 50%;
+            min-height: 100vh;
+            padding: 5px;
+            float: left;
+        }
+        #im2{
+            width: 80%; 
+            z-index: 5;
+            filter: drop-shadow(5px 5px 15px rgb(204, 0, 0,0.2));
+            animation: tt 2s linear 5s alternate infinite;
+        }
+        #round{
+            width: 40%;
+            min-height: 80%;
+            background-color: #f97070;
+            position: absolute;
+            bottom: 5%;
+            border-radius: 100%;
+            filter: drop-shadow(5px 5px 15px rgb(247, 59, 59,0.4));
+            animation: ttt 2s linear 5s alternate infinite;
+        }
+        #character{
+            width:300px;
+            background-color: #1E1F24;
+            position: relative;
+            top: 50%;
+            left: 80%;
+            transform: translate(-50%,50%);
+            border-radius: 20px;
+            filter: drop-shadow(5px 5px 15px rgba(140, 140, 140, 0.1));
+            text-align: center;
+            padding: 10px;
+            font-family: 'Fredoka';
+            color: #f97070;
+            user-select: none;
+            cursor: pointer;
+        }
+        #detacover{
+            width: 100%;
+            height: auto;
+        }
+        #comments{
+            width: 100%;
+            min-height:200px;
+            margin-top: 5px;
+            background-color: #1E1F24;
+            border-radius: 20px;
+            filter: drop-shadow(5px 5px 15px rgba(140, 140, 140, 0.1));
+            display:flex;
+            flex-direction: row;
+            padding: 5px;
+        }
+        #comments::before{
+            content: '';
+            display: block;
+            font-family: 'Fredoka';
+            color: #f97070;
+        }
+        #videosl{
+       
+            border-radius: 20px;
+            filter: drop-shadow(5px 5px 15px rgba(140, 140, 140, 0.1));
+        }
+       #mainfourth{
+        width: 100%;
+        min-height: 100vh;
+        background-color: #0D0C0F;
+        float: left;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        justify-content: center;
+       }
+       #world{
+        width: 100%;
+       }
+       #f1{
+        width: 100%;
+        height: 65vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color:#1E1F24 ;
+        background-image: url('Images/yt dp.png');
+        background-repeat:no-repeat;
+        background-position-x: center;
+        border-radius: 20px;
+        filter: drop-shadow(5px 5px 15px rgba(249, 112, 112, 0.1));
+        overflow-y: hidden;
+       }
+      
+       #f1t{
+        font-family: 'Fredoka';
+        color: #f2f2f2;
+        position: relative;
+        transform: translate(10%,50%);
+        font-size: 17px;
+        user-select: none;
+       }
+       form{
+        margin-top: 15px;
+        font-family: 'Fredoka';
+        font-size: 20px;
+       }
+       input{
+        border-radius: 10px;
+        filter: drop-shadow(5px 5px 15px rgba(64, 64, 64, 0.5));
+       }
+       textarea{
+        border-radius: 10px;
+        filter: drop-shadow(5px 5px 15px rgba(64, 64, 64, 0.5));
+       }
+       button{
+        width:35%;
+        padding: 2px;
+        font-family: 'Fredoka';
+        border-radius: 10px;
+        background-color: #f97070;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        filter: drop-shadow(5px 5px 15px rgba(64, 64, 64, 1));
+        animation: ttt 2s linear 5s alternate infinite;
+       }
+      footer{
+        width:100%;
+        min-height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        background-color: #1E1F24;
+        font-family: 'Fredoka';
+        color:#c0c0c0;
+        font-size:12px;
+      }
+      #p1{
+        cursor: pointer;
+        user-select: none;
+      }
+      #p1 a{
+        color:#0D0C0F;
+        text-decoration: none;
+      }
+      #im5{
+        width: 70%;
+      }
+      span{
+        width:150px;
+        height:150px;
+        border-radius:25px;
+        background-color:#262626;
+        padding:10px;
+        color:white;
+        margin-left:10px;
+        margin-top: 10px;
+        font-family: 'Fredoka';
+        text-align: center;
+        cursor: pointer;
+        user-select: none;
+
+    }
+    #w1{
+        width:30%;
+        min-height: 100vh;
+        float: left;
+        
+    }
+    #w2{
+        width:70%;
+        min-height: 100vh;
+        float: left;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+    #wn1{
+        width:100%;
+        min-height: 50vh;
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        cursor: pointer;
+        filter: drop-shadow(5px 5px 15px rgba(70, 72, 83,0.2));
+        
+    }
+    #wn2{
+        width:100%;
+        min-height:50vh;
+        float:left;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        cursor: pointer;
+        filter: drop-shadow(5px 5px 15px rgba(70, 72, 83,0.2));
+    }
+    #wnb{
+        width:100%;
+        min-height: 50vh;
+        border-radius: 25px;
+        background-color: #1E1F24;
+        cursor: pointer;
+        filter: drop-shadow(5px 5px 15px rgba(70, 72, 83,0.2));
+    }
+    #imb{
+        position: relative;
+        left: 50%;
+        transform: translate(50%,0);
+    }
+    #okbois{
+        width: 100%;
+        height: 100vh;
+        background-color: #0D0C0F;
+        color: #f97070;
+        font-family: 'Fredoka';
+        z-index: 6000;
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #load{
+        width: 75px;
+        height: 75px;
+        border-radius: 100%;
+        border-top:5px solid #f97070;
+        animation: roll 2s linear 5s  infinite;
+
+    }
+    .about{
+        width:100%;
+        min-height: 80vh;
+        background-color: #0D0C0F;
+        float: left;
+        background-image: url("Images/PXL_20230829_034845288.PORTRAIT-removebg-preview\ \(1\).png");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        padding: 15px;
+        background-position-x: right;
+        cursor: pointer;
+    }
+
+    /*animation*/
+        @keyframes ttt{
+            0%{
+                transform: translate(2%,0%);
+                
+            } 
+        }
+        @keyframes roll{
+            0%{
+                transform: rotate(0deg);
+            }
+            0%{
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes tt{
+            0%{
+                transform: translate(0%,2%);
+                
+            } 
+        }
+        @keyframes ttm{
+            0%{
+                transform: translate(45%,0%);
+                
+            } 
+        }
+        @keyframes tx{
+            0%{
+                transform: translate3d(5px, 5px, 0);
+            }
+            75%{
+                transform: translate3d(5px, 15px, 0);
+                
+            }
+            
+        }
+        @keyframes txx{
+            0%{
+                transform: rotateX(90deg);
+                color: #1E1F24;
+            }
+            75%{
+                transform: rotateX(0deg);
+                
+            }
+            
+        }
+        /*responsive website*/
+        @media screen and (max-width:768px) {
+            #podcast{
+            width: 100%;
+            height: 400px;
+            padding: 10px;
+            margin-top: 40px;
+            border-radius: 25px;
+            background-color: #1E1F24;
+            filter: drop-shadow(5px 5px 15px rgba(140, 140, 140, 0.1));
+            opacity: 0%;
+            transition: 0.4s opacity;
+            margin-left:0px;
+        }
+        #comments{
+            flex-direction: column;
+            align-items: center;
+
+        }
+       
+        #comments::before{
+            content: 'Superb Comments';
+        }
+        #vid,#detailed,#thumb,#details{
+            width: 100%;
+            min-height: 90vh;
+        }
+        #text1{
+            font-size: 10px;
+            width: 70%;
+        }
+        #p1{
+            font-size: 18px;
+        }
+        #im2{
+            width: 400px;
+        }
+        #round{
+            width: 400px;
+            min-height:400px;
+            bottom: 14%;
+        }
+        #character{
+            left: 50%;
+        }
+        #im5{
+            width: 100%;
+            margin-left:0px;
+        }
+        #videosl{
+            width: 100%;
+            margin-left:0px;
+        }
+       footer{
+        font-size:8px;
+       }
+       header{
+                width: 200px;
+        }
+       
+       #w2{
+        width:100%;
+        float: left;
+       }
+       #w1{
+        display: none;
+       }
+    }
+    @media screen and (max-width:425px) {
+            header{
+                width: 200px;
+            }
+            #podcast{
+            width: 100%;
+            height: 400px;
+            padding: 10px;
+            margin-top: 40px;
+            border-radius: 25px;
+            background-color: #1E1F24;
+            filter: drop-shadow(5px 5px 15px rgba(140, 140, 140, 0.1));
+            opacity: 0%;
+            transition: 0.4s opacity;
+            margin-left:0px;
+        }
+        
+        #vid,#detailed,#thumb,#details{
+            width: 100%;
+            min-height: 90vh;
+        }
+
+        #text1{
+            font-size: 10px;
+            width: 70%;
+        }
+        #p1{
+            font-size: 18px;
+        }
+        #im2{
+            width: 250px;
+        }
+        #round{
+            width: 250px;
+            min-height:250px;
+            bottom: 32%;
+        }
+        #character{
+            left: 50%;
+        }
+        #im5{
+            width: 100%;
+            margin-left:0px;
+        }
+        #videosl{
+            width: 100%;
+            margin-left:0px;
+            
+        }
+        footer{
+        font-size:8px;
+       }
+       #comments{
+            flex-direction: column;
+            align-items: center;
+
+        }
+        #comments::before{
+            content: 'Superb Comments';
+        }
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="okbois">
+        <div id="load">
+
+        </div>
+    </div>
+    <header>
+        <!--fixed nav-->
+        <img src="Images/icons8-podcast-64.png" alt="" id="im">
+        <img src="Images/icons8-youtube-48.png" alt="" id="im">
+        <img src="Images/icons8-python-48.png" alt="" id="im">
+        <img src="Images/icons8-team-48.png" alt="" id="im">
+  
+      
+    </header>
+    <div id="mainFirst">
+        <div id="thumb">
+            <!--image and div-->
+            <img src="Images/xx.png" alt="" id="im2">
+            <div id="round">
+
+            </div>
+        </div>
+        <div id="details">
+            <div id="detacover">
+         <!--details-->
+            <p id="p1" style="font-size: 30px;margin-top:10px;background-color: #f97070;padding:5px;text-align: center;border-radius: 25px;color: #0D0C0F;">WEB DEVELOPMENT</p>
+            <p id="p1" style="text-align: justify;margin-top: 30px;font-size: 15px;color:#c0c0c0;background-color:#1E1F24;padding:10px;border-radius: 25px;filter: drop-shadow(5px 5px 15px rgba(140, 140, 140, 0.1));">
+                Web developers use a combination of programming languages such as HTML, CSS, and JavaScript to structure the content, style the layout, and add interactive elements to the home page. HTML provides the basic structure of the page, CSS is used to control the visual appearance and layout, while JavaScript enables dynamic and interactive features.
+                Join us NOW ! :
+                
+            </p>
+            <p id="p1" style="margin-top: 10px;background-color: #f97070;padding:10px;font-size: 22px;text-align: center;border-radius: 25px;color: #0D0C0F;">
+            <a href="https://www.youtube.com/@DINNAlk/" target="_blank">SUBSCRIBE</a>
+            </p>
+        </div>
+        </div>
+    </div>
+    <div id="mainSecond">
+        <!--character view-->
+        <div id="character">
+            HOSTED BY DINNA OR SUPUNI
+        </div>
+        <!--podcast view-->
+            <div id="podcast">
+                <button id="btn1">X</button> <br>
+                    <iframe src="https://podcasters.spotify.com/pod/show/dinusha-bamunuarach/embed/episodes/API-e2501nm" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+                    <iframe src="https://podcasters.spotify.com/pod/show/dinusha-bamunuarach/embed/episodes/JAVASCRIPT-JS-Podcast--DINNA--sinhala-e23a0l9" height="102px" width="400px" frameborder="0" scrolling="no" ></iframe>
+                    <iframe src="https://podcasters.spotify.com/pod/show/dinusha-bamunuarach/embed/episodes/The--Difference-e21rv9q/a-a9kfpg5" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+                    <iframe src="https://podcasters.spotify.com/pod/show/dinusha-bamunuarach/embed/episodes/How-we-think-about-a-programDINNAsinhala-e1vlo30" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+                    <iframe src="https://anchor.fm/dinusha-bamunuarach/embed/episodes/Other-No-title-e1vesh5" height="102px" width="400px" frameborder="0" scrolling="no" ></iframe>
+                    <iframe src="https://anchor.fm/dinusha-bamunuarach/embed/episodes/CSS-Podcast-e1vesf1/a-a9ct5qo" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+                    <iframe src="https://anchor.fm/dinusha-bamunuarach/embed/episodes/can-we-see-the-internet-by-web-sites-e1ves2f/a-a9ct45a" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+           
+        </div>
+        <!--text view-->
+        <p id="text1">
+        Podcasts by DINNAfm <br> Now you can listen podcast about webdeveloping & other themes.Other Theme : Sometime this podcasts include with my opinion.So, please, think twice,before keep these fact on your mind.
+        </p>
+
+    </div>
+    <div id="mainThird">
+
+        <div id="vid">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/aEigazbWluk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen id="videosl" ></iframe>
+
+            <div id="comments" style="margin-top: 15px;">
+            </div>
+        </div>
+
+        <div id="detailed">
+            <img src="Images/dd.png" alt="" class="im2"style="width:10%;">
+            <p class="d" style="margin-top: 5px;color: #f2f2f2;font-family: 'Fredoka';">COMMUNITY</p>
+            <img src="Images/unnamed.jpg" alt="" id="im5" style="border-radius: 25px;margin-top: 5px;margin-left: 5px;">
+        </div>
+    </div>
+    <div id="mainfourth">    
+          <div id="w1">
+            <div id="wn1">
+                <div id="wnb" style="font-style: 30px;color: #c0c0c0;font-family: 'Fredoka';display: flex;align-items: center; gap:15px;user-select: none;padding: 20px;">
+                    <img src="Images/icons8-analytics-48.png" alt=""> <br>
+                    JOIN TO GROW OUR TEAM
+                </div>
+            </div>
+            <div id="wn2">
+               <div id="wnb" style="font-style: 40px;color: #f97070;font-family: 'Fredoka';display: flex;align-items: center; gap:10px;user-select: none;padding: 10px;justify-content: center;">
+                    create your own website
+                </div> 
+            </div>
+          </div>
+          <div id="w2">
+            <div id="wnb" style="min-height: 100vh;padding: 25px;">
+                <p id="wnbp1" style="font-style: 30px;color: #c0c0c0;font-family: 'Fredoka';">
+                    #DINNAteam <img src="Images/icons8-github-48.png" alt="" style="display: inline-block;">
+                </p>
+                <p id="wnbp2" style="margin-top: 10px;font-size: 20px;font-family: 'Fredoka';">
+                    We expect your participation in our TEAM.First Of All, we check your skills about you have.Specially,should be good at mysql,php,javascript,css and github.You can contact us on our social media platform.
+                    In the First Time,Don't expect salary.In future,we wil pay the salary for your work with growing the DINNAteam.You can Message us through below input fields.If you are graphic Designer, You can join.
+                    We contact you within 24 hours after you sent message.
+                </p>
+                  <!-- modify this form HTML and place wherever you want your form -->
+            <form
+            action="https://formspree.io/f/moqoqyrb"
+            method="POST"
+            enctype="multipart/form-data"
+            >
+            <label style="color: #f97070;">
+            Your Email: 
+             <input type="email" name="email" placeholder="Your Email" style="font-family: 'Fredoka';"> 
+            </label> <br><br>
+            <label style="color: #f97070;">
+            Your Skills:
+             &nbsp;<textarea name="message" placeholder="Your Skills" style="font-family: 'Fredoka';"></textarea>
+            </label>
+            <br><br>
+           
+            <!-- your other form fields go here -->
+            <button type="submit">Send</button>
+        </form> 
+        <br>
+        <img src="Images/icons8-mysql-logo-48.png" alt="" id="imb"><img src="Images/icons8-adobe-photoshop-48.png" alt="" id="imb">
+            </div>
+          </div>    
+    </div>
+    <div class="about">
+        <p id="dddd" style="font-family: 'Fredoka';color:#f97070;cursor: pointer;user-select: none;font-size: 20px;margin-top: 15px;">
+            Who is DINNA ?
+        </p>
+        <p id="dddd" style="color:blue;text-decoration: underline;font-family: 'Fredoka';cursor: pointer;user-select: none;font-size: 20px;">
+            #proudtobelk
+        </p>
+        <p id="dddd" style="color:#f11515;margin-top:20px;font-family: 'Fredoka';cursor: pointer;font-size: 30px; " >
+            "DINNA, who comfirmed the blue pride of the SIYANE NAYAKE in the friendly world, come to see him and this infinite information sea."
+        </p>
+    </div>
+    <footer>
+        Developed By, DINNAteam | 2023 | DINNA | YouTube | Podcast | create your own website | 0715144517 | dinushapiumantha555@gmail.com
+    </footer>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+        let x=document.getElementById("btn1");
+        let y=document.getElementById("podcast");
+        let icon=document.querySelectorAll("#im");
+        let c=document.getElementById("text1");
+        let ytPost=document.getElementById("im5");
+        icon[0].onclick=()=>{
+            if(window.scrollY <= 1){
+                window.addEventListener('resize', adjustFontSize);
+            function adjustFontSize() {
+                var screenWidth = window.innerWidth;
+                if (screenWidth <= 768) {
+                    window.scrollTo(0,1080);
+                    y.style.opacity="100%";
+                    y.style.overflowY="scroll";
+                    icon[0].style.borderTop = '1px solid #f97070';
+                    icon[1].style.display = 'none';
+                    icon[3].style.display = 'none';
+                } else {
+                window.scrollTo(0,620);
+                y.style.opacity="100%";
+                y.style.overflowY="scroll";
+                icon[0].style.borderTop = '1px solid #f97070'; 
+                }
+                }
+                // Call the function on initial page load
+                adjustFontSize();
+                
+            }
+            else{
+                y.style.opacity="100%";
+                icon[0].style.borderTop = '1px solid #f97070';
+                y.style.overflowY="scroll";
+            }
+           
+               
+                
+            
+        }
+        icon[1].onclick=()=>{
+            window.scrollTo(0,1250);
+        }
+        
+        x.onclick=()=>{
+            y.style.opacity="0%";
+            icon[0].style.borderTop = 'none';
+            y.style.overflowY="hidden";
+        };
+        document.addEventListener('scroll',scrolleffect);
+        function scrolleffect(){
+            if(scrollY<=590){
+                c.style.left="180%";
+                
+                c.style.transition="1s";
+            }
+            else{
+                c.style.left="20%";
+            }
+        }
+        document.addEventListener('scroll',scrolleffec);
+        function scrolleffec(){
+            if(scrollY<=1000){
+                ytPost.style.transform="translate3d(100px, 50px, 0)";
+                
+                ytPost.style.transition="1s";
+            }
+            else{
+                ytPost.style.transform="translate3d(5px, 5px, 0)";
+            }
+        }
+        icon[2].onclick=()=>{
+            window.open('python.html',"_blank");
+
+        }
+        icon[3].onclick=()=>{
+            window.scrollTo(0,1870)
+        }
+        //for remove icons on small devices
+        window.addEventListener('resize', adjustFontSizes);
+            function adjustFontSizes() {
+        var screenWidthpro = window.innerWidth;
+                if (screenWidthpro <= 768) {
+                    icon[1].style.display = 'none';
+                    icon[3].style.display = 'none';
+                }
+                else {
+                    icon[1].style.display = 'block';
+                    icon[3].style.display = 'block';
+                }
+            }
+            adjustFontSizes();
+            //For API
+            function loadClient() {
+    gapi.client.setApiKey("AIzaSyCzGSlNVUHJCel-EY9TONElatc-dTioggA");
+    return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+        .then(function() {
+          console.log("GAPI client loaded for API");
+          execute(); // Automatically execute the request after loading
+        })
+        .catch(function(err) {
+          console.error("Error loading GAPI client for API", err);
+        });
+  }
+
+  function execute() {
+    return gapi.client.youtube.commentThreads.list({
+      "part": "snippet",
+      "videoId": "jIadDt6LQDg",
+      "maxResults": 5  // Adjust the number of comments you want to retrieve
+    })
+    .then(function(response) {
+      // Handle the results here (response.result has the parsed body).
+      console.log("Response", response);
+
+      // Display comments in the comments div
+      var commentsDiv = document.getElementById("comments");
+      var comments = response.result.items;
+
+      if (comments) {
+        comments.forEach(function(comment) {
+          var commentText = comment.snippet.topLevelComment.snippet.textDisplay;
+          var commentElement = document.createElement("span");
+          commentElement.textContent = commentText;
+          commentsDiv.appendChild(commentElement);
+        });
+      }
+    })
+    .catch(function(err) {
+      console.error("Execute error", err);
+    });
+  }
+
+  gapi.load("client", loadClient);
+  var load=document.getElementById('okbois');
+  var rotP=document.querySelectorAll("#p1");
+  setTimeout(()=>{
+    load.style.display='none';
+    window.scrollTo(0,0);
+    rotP[0].style.animation='txx 2s linear 5s alternate';
+  },10000);
+
+    </script>
+</body>
+</html>

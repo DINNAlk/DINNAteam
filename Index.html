@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Teko&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="Images/favicon (2).ico">
+    
+    <title>@DINNAlk</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        /*for content*/
+        #main{
+            width:100%;
+            min-height: 100vh;
+            background-color: #0D0C0F;
+            color: #f2f2f2;;
+            font-family: 'Fredoka';
+            padding: 15px;
+        }
+        #box{
+            width:500px;
+            background-color: #1E1F24;
+            min-height: 500px;
+            border-radius: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            filter: drop-shadow(5px 5px 15px rgba(30, 31, 36, 0.8));
+            padding: 20px;
+            transition:0.4s opacity;
+        }
+        #btn1{
+            width: 100%;
+            min-height: 70px;
+            font-size: 20px;
+            font-family: "Fredoka";
+            background-color: #f97070;
+            border-radius: 50px;
+            border: none;
+            margin-top: 50px;
+            color: #f2f2f2;
+            cursor: pointer;
+            filter: drop-shadow(5px 5px 15px rgba(249, 112, 112, 0.4));
+        }
+        #loader{
+            width:25px ;
+            min-height: 25px;
+            border-radius: 100%;
+            border-top: 2px solid #f97070;
+            animation: t 1s linear 1s infinite;
+        }
+        #dot{
+            width: 5px;
+            height: 5px;
+            background-color: #f97070;
+            border-radius: 100%;
+           
+        }
+        /*animation*/
+        @keyframes t{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        /*responsive codes*/
+        @media screen and (max-width:768px){
+            #box{
+                width: 100%;
+            }
+            #main{
+                min-height: 150vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="maininbox">
+            <div id="box" style="z-index: 15;">
+                <p id="t1" style="font-size: 25px;color: #f97070;">
+                    Caution !!! 
+                </p>
+                <p id="t2" style="margin-top: 45px;">
+                    We developed this site as user-friendship manner, not to copy by anyone.Because, we use this site for our all official usages.
+                    Another source-code of our projects provide you by <a href="https://t.me/+NfpLAwDdDcBkOWE1" target="_blank">OUR DINNA TELEGRAM GROUP</a>
+                </p>
+                <button id="btn1">
+                    Next
+                </button>
+            </div>
+            <div id="box" style="opacity: 0%;width: 250px;min-height: 100px;display: flex;align-items: center;justify-content: center;">
+                <div id="loader" ></div> Loading...
+            </div>
+        </div>
+    </div>
+    <script>
+        //btn1 hover
+        var bottOne=document.getElementById("btn1");
+        var boxs=document.querySelectorAll("#box");
+        bottOne.addEventListener('mouseenter',ee);
+        function ee(){
+            bottOne.innerHTML="Next ->";
+            
+        }
+        bottOne.addEventListener('mouseleave',eee);
+        function eee(){
+            bottOne.innerHTML="Next";
+           
+        }
+        //btn1 click
+        var bottOne=document.getElementById("btn1");
+        bottOne.addEventListener('click',e);
+        function e(){
+            boxs[0].style.opacity="0%";
+            boxs[1].style.opacity="100%";
+        //open new page
+        setTimeout(()=>{
+            boxs[1].style.opacity="0%";
+
+        },2500);
+        setTimeout(()=>{
+            window.open("Home.html","_self");
+            
+        },2505);
+        }
+        
+    </script>
+</body>
+</html>
